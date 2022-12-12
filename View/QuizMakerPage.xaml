@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizMaker.View.QuizMakerPage"
+             BackgroundImageSource="background.png">
+   
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome Quiz Maker"
+            FontSize="35"
+            TextColor="White"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <StackLayout x:Name="InfoGrid" IsVisible="True">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="0,40,0,40">
+            <Label Grid.Row="0"  Text="Author : " 
+               FontSize="25"
+            TextColor="White"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+             />
+            <Entry Grid.Row="0" x:Name="authorName" WidthRequest="500" HeightRequest="40"   Placeholder="Your Name" BackgroundColor="White" PlaceholderColor="Gray" />
+            </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="30">
+            <HorizontalStackLayout Margin="20" Spacing="10" HorizontalOptions="CenterAndExpand">
+                
+                    <Label Text="Quiz Name : "
+               FontSize="25"
+            TextColor="White"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+                    <Entry x:Name="quizName" WidthRequest="250" HeightRequest="40"   Placeholder="Name the Quiz" BackgroundColor="White" PlaceholderColor="Gray" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout  Margin="30,0,0,0" Spacing="10" >
+
+                <Label Text="No of Questions : "
+               FontSize="25"
+            TextColor="White"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+                <Entry x:Name="numQuestions" WidthRequest="250" HeightRequest="40"   Placeholder="no of que" BackgroundColor="White" PlaceholderColor="Gray" />
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+        <Button Grid.Row="3" Margin="60" HorizontalOptions="Center" FontAttributes="Bold" TextColor="White" Padding="10" Text="Submit" Clicked="Button_Clicked" BackgroundColor="MediumBlue" CornerRadius="10" />
+        </StackLayout>
+
+        <StackLayout x:Name="QuestionGrid" IsVisible="False" >
+       
+
+            <HorizontalStackLayout Spacing="10" Margin="0,40,0,40" HorizontalOptions="CenterAndExpand">
+                <Label x:Name="queLabel" Grid.Row="0" TextColor="White" FontSize="25" FontAttributes="Bold" Text="Q 1)" BackgroundColor="Transparent"/>
+                <Entry Grid.Row="0" x:Name="QuestionTag" WidthRequest="500" HeightRequest="50" Placeholder="Type your question" BackgroundColor="White" PlaceholderColor="Gray" />
+                </HorizontalStackLayout>
+                <Entry x:Name="optionATag" HorizontalOptions="Center" WidthRequest="250" HeightRequest="50" Margin="0,0,0,5"  Placeholder="Option A" BackgroundColor="White" PlaceholderColor="Gray" />
+
+                <Entry x:Name="optionBTag"  HorizontalOptions="Center" WidthRequest="250" HeightRequest="50" Margin="5"  Placeholder="Option B" BackgroundColor="White" PlaceholderColor="Gray" />
+
+                <Entry x:Name="optionCTag"  HorizontalOptions="Center" WidthRequest="250" HeightRequest="50" Margin="5"  Placeholder="Option C" BackgroundColor="White" PlaceholderColor="Gray" />
+
+                <Entry x:Name="answerTag"  HorizontalOptions="Center" WidthRequest="250" HeightRequest="50"  Margin="5" Placeholder="Answer" BackgroundColor="White" PlaceholderColor="Gray" />
+
+                <Button Margin="60" HorizontalOptions="Center" FontAttributes="Bold" TextColor="White" Padding="10" Text="Submit" Clicked="Question_Button_Clicked" BackgroundColor="MediumBlue" CornerRadius="10" />
+            
+          
+        </StackLayout>
+        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <HorizontalStackLayout>
+            <Button x:Name="StartAgain" CornerRadius="10" FontAttributes="Bold" TextColor="White" Padding="10"  IsVisible="False" Text="Start Over" Clicked="StartAgain_Clicked" BackgroundColor="MediumBlue" Grid.Row="1" Grid.Column="0" Margin="8"/>
+            <Button x:Name="quitApp" CornerRadius="10" FontAttributes="Bold" TextColor="White" Padding="10"  IsVisible="False" Text="Quit" Clicked="quitApp_Clicked" BackgroundColor="MediumBlue" Grid.Row="1" Grid.Column="1" Margin="8"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

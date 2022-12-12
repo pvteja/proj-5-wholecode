@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizMaker.About"
+             Title="About Page">
+               
+    <VerticalStackLayout BackgroundColor="{DynamicResource bgColor}">
+        <Label />
+        <Label 
+            Text="CS 797 HW1- Calculator Development"
+            TextColor="{DynamicResource fgColor}"
+            FontFamily = "Lobster-Regular"
+            FontAttributes="Italic"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label />
+        <Label Text="Team Members: "
+            TextColor= "{DynamicResource fgColor}"
+            FontFamily = "Lobster-Regular"
+            FontAttributes="Bold"
+            FontSize="30"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start"/>
+        <Label />
+        <Label 
+            Text="   1. Vedasree Kommindala"
+               FontFamily="Lobster"
+                 TextColor= "{DynamicResource fgColor}"
+               FontSize="20"
+               VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Label 
+            Text="   2. Venkata Pruthvi Teja"
+             TextColor= "{DynamicResource fgColor}"
+               FontFamily="Lobster"
+               FontSize="20"
+               VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+        <Label 
+            Text="   3. Praneeth Ranga"
+             TextColor= "{DynamicResource fgColor}"
+               FontFamily="Lobster"
+               FontSize="20"
+               VerticalOptions="Center" 
+            HorizontalOptions="StartAndExpand" />
+
+    </VerticalStackLayout>
+</ContentPage>

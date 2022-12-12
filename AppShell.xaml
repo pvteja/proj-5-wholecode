@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="QuizMaker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:QuizMaker"
+    xmlns:view="clr-namespace:QuizMaker.View"
+    >
+
+
+
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="50" BackgroundColor="{DynamicResource fgColor}">
+        </Grid>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title = "Home">
+        <ShellContent
+            ContentTemplate = "{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title = "LeaderBoard Page">
+        <ShellContent
+            ContentTemplate = "{DataTemplate view:LeaderBoardPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title = "Quiz Maker">
+        <ShellContent
+            ContentTemplate = "{DataTemplate view:QuizMakerPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title = "About">
+        <ShellContent
+            ContentTemplate = "{DataTemplate local:About}" />
+    </FlyoutItem>
+    
+</Shell>

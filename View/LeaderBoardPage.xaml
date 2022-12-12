@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizMaker.View.LeaderBoardPage"
+             xmlns:viewmodel="clr-namespace:QuizMaker.ViewModel"
+             x:DataType="viewmodel:LeaderBoardViewModel"
+             xmlns:models="clr-namespace:QuizMaker.Models"
+                          BackgroundImageSource="background.png"
+
+>
+
+    
+    <Grid RowDefinitions="auto,*">
+        <Grid Grid.Row="0"  ColumnSpacing="30" ColumnDefinitions="*,*,*,*,*" >
+            <Label FontAttributes="Bold" Grid.Column="0" FontSize="25" TextColor="White" Text="Rank"/>
+
+            <Label FontAttributes="Bold" Grid.Column="1" FontSize="25" TextColor="White" Text="Name"/>
+
+            <Label FontAttributes="Bold" Grid.Column="2" FontSize="25" TextColor="White" Text="Score"/>
+
+            <Label FontAttributes="Bold" Grid.Column="3" FontSize="25" TextColor="White" Text="Accurancy"/>
+            <Label FontAttributes="Bold" Grid.Column="4" FontSize="25" TextColor="White" Text="Date"/>
+
+
+        </Grid>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding LeaderBoardList }"  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate  x:DataType="models:QuizScoresModel">
+                    <Grid  ColumnSpacing="30" ColumnDefinitions="*,*,*,*,*" >
+                        <Label Grid.Column="0" FontSize="25" TextColor="White" Text="{Binding id}"/>
+
+                        <Label Grid.Column="1" FontSize="25" TextColor="White" Text="{Binding user}"/>
+                                
+                                <Label Grid.Column="2" FontSize="25" TextColor="White" Text="{Binding score}"/>
+
+                                <Label Grid.Column="3" FontSize="25" TextColor="White" Text="{Binding acc}"/>
+                                <Label Grid.Column="4" FontSize="25" TextColor="White" Text="{Binding DateTime}"/>
+                    </Grid>
+                    <!--  <Frame HeightRequest="100">
+                            <Label Text="{Binding id}" FontSize="20"  />
+                        </Frame>
+                        <Frame HeightRequest="1">
+                            <Label Text="{Binding question}" FontSize="20"  /> 
+                        </Frame> -->
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

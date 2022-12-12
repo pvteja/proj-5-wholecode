@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuizMaker.MainPage"
+             xmlns:viewmodel="clr-namespace:QuizMaker.ViewModel"
+             x:DataType="viewmodel:QuizViewModel"
+             xmlns:models="clr-namespace:QuizMaker.Models"
+             BackgroundImageSource="background.png"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+
+            <Style TargetType="Button">
+
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderWidth" Value="2" />
+
+            </Style>
+            <Style TargetType="Label">
+
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <Grid>
+
+    <Grid x:Name="TopicGrid" RowDefinitions="auto,*">
+
+
+                <Label Grid.Row="0" Text="Select a Topic"  HorizontalOptions="Center"/>
+
+        <CollectionView  Grid.Row="1"   ItemsSource="{Binding QuizTopicList}" HorizontalOptions="CenterAndExpand" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate  x:DataType="models:QuizTopicModel" >
+                        <Button x:Name="{Bindding TopicName}"  Text="{Binding TopicName}" HorizontalOptions="CenterAndExpand" WidthRequest="500" HeightRequest="50" Margin="10" Clicked="Button_Clicked"/>
+
+
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+      
+    </Grid>
+
+    <Grid  RowDefinitions="*,auto" ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10">
+
+
+
+            <Entry x:Name="NameEntry" IsVisible="False"
+       Placeholder="Enter you Name" WidthRequest="500" HeightRequest="50" BackgroundColor="Transparent" 
+       Completed="OnEntryCompleted" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" /> 
+            <Grid x:Name="QuestionsGrid" IsVisible="False" Grid.ColumnSpan="2" Grid.Row="0"  Padding="10" ColumnSpacing="10" RowSpacing="10">
+            <VerticalStackLayout Spacing="10" >
+                <Grid ColumnDefinitions="*,*">
+                        <Button x:Name="show_restart" Text="Restart" Clicked="StartAgain_Clicked" HorizontalOptions="StartAndExpand"  FontSize="25" FontAttributes="Bold" />
+                        <Button x:Name="show_quit" Text="Quit" Clicked="quitApp_Clicked" HorizontalOptions="EndAndExpand" Grid.Column="1" FontSize="25" FontAttributes="Bold"  />
+                </Grid>
+                <Grid ColumnDefinitions="*,*">
+                    <Label x:Name="id"  FontSize="25" FontAttributes="Bold"  Text=""/>
+                    <Label x:Name="score" HorizontalOptions="EndAndExpand" Grid.Column="1" FontSize="25" FontAttributes="Bold"  Text="Score: 0/10 "/>
+
+                </Grid>
+                <Label x:Name="question" HorizontalOptions="Center"  Text="" Margin="0,20,0,20" />
+                    <Button x:Name="optionA" Text="" Clicked="Option_Clicked"   />
+                <Button x:Name="optionB" Text="" Clicked="Option_Clicked"   />
+                <Button x:Name="optionC" Text="" Clicked="Option_Clicked"  />
+                <Label x:Name="result"  IsVisible="False"  FontSize="35" FontAttributes="Bold" Text=""   HorizontalTextAlignment="Center"/>
+
+
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+        <Button x:Name="tryAgain" IsVisible="False" Text="Try Again" Clicked="tryAgain_Clicked"  Grid.Row="1" Grid.Column="0" Margin="8"/>
+      
+        <Button x:Name="Next_Button" Text="Skip to Next" 
+                IsVisible="False"
+                Clicked="Next_Clicked"
+                Grid.Row="1"
+                Grid.Column="1"
+            
+                Margin="8"/>
+        <Label x:Name="finalScore" Text="" IsVisible="False" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="50" Grid.ColumnSpan="2" />
+        <Button x:Name="StartAgain" IsVisible="False" Text="Start Over" Clicked="StartAgain_Clicked"  Grid.Row="1" Grid.Column="0" Margin="8"/>
+        <Button x:Name="quitApp" IsVisible="False" Text="Quit" Clicked="quitApp_Clicked"  Grid.Row="1" Grid.Column="1" Margin="8"/>
+
+
+
+    </Grid>
+    </Grid>
+
+</ContentPage>
